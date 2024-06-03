@@ -3,3 +3,6 @@
 通过fiddler抓包获取了预定座位的post请求，利用python的request库模拟请求实现预定座位。
 主要参考了CSDN上的教程：https://blog.csdn.net/weixin_51461002/article/details/130292567
 ## cookie保活策略
+经过实际测试cookie仅保活2h，想要在第一天晚上挂上脚本第二天早上自动抢座就不能实现。
+采取的办法是每隔1分钟post主页利用request.session和GitHub大佬写的自动获取cookie代码，在过期前2min将会获得新的cookie，对带有Authorization的JWT部分进行更新即可
+Github大佬写的自动获取cookie代码在这里：
